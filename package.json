@@ -1,0 +1,35 @@
+{
+  "name": "open-email",
+  "version": "1.0.0",
+  "description": "microservice that sents email to clients",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon",
+    "build": "rimraf ./build && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/imrany/open-email.git"
+  },
+  "keywords": [
+    "open",
+    "email"
+  ],
+  "author": "imrany",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imrany/open-email/issues"
+  },
+  "homepage": "https://github.com/imrany/open-email#readme",
+  "devDependencies": {
+    "@types/node": "^18.15.5",
+    "rimraf": "^4.4.0"
+  },
+  "dependencies": {
+    "mongoose": "^7.0.2",
+    "nodemailer": "^6.9.1",
+    "nodemon": "^2.0.21",
+    "ts-node": "^10.9.1"
+  }
+}
