@@ -1,7 +1,15 @@
 
 export interface sendInterface{
     mailfrom:string
-    mailto:string
+    email:string
     subject:string
-    message:string
+    text:string
+}
+
+
+export interface mailDetailsInterface{
+    from:any
+    to:string
+    subject:string
+    text:string
 }
