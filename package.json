@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/imrany/open-email#readme",
   "devDependencies": {
+    "@tsconfig/node17": "^1.0.2",
     "@types/express": "^4.17.17",
     "@types/node": "^18.15.5",
     "rimraf": "^4.4.0"

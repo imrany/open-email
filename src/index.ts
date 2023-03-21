@@ -6,7 +6,6 @@ const app=express()
 //route
 app.get('/',async(req,res):Promise<void>=>{
     try {
-        const {mailfrom,mailto,subject,message}:sendInterface=req.body
         res.status(200).send({msg:"Hello there"})
     } catch (error:any) {
         res.status(500).send({error:error.message})
