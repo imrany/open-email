@@ -1,7 +1,7 @@
 {
   "name": "open-email",
   "version": "1.0.0",
-  "description": "microservice that sents email to clients",
+  "description": "microservice that sents mail to clients",
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
