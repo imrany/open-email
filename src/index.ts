@@ -1,7 +1,5 @@
 import express from "express"
 import { sendInterface } from "./interfaces&types/int"
-import * as dotenv from "dotenv"
-dotenv.config()
 
 const app=express()
 
@@ -17,7 +15,7 @@ app.get('/',async(req,res):Promise<void>=>{
 app.post('/send',async(req,res):Promise<void>=>{
     try {
         const {mailfrom,mailto,subject,message}:sendInterface=req.body
-
+        
         res.status(200).send({msg:"Hello there"})
     } catch (error:any) {
         res.status(500).send({error:error.message})
@@ -27,6 +25,6 @@ app.post('/send',async(req,res):Promise<void>=>{
 //listening to port
 let port:number|string=process.env.PORT||8000
 app.listen(port,()=>{
-    console.log(`Server running on port ${port} ${process.env.PASSWORD}`)
+    console.log(`Server running on port ${port}`)
 })
 
