@@ -1,5 +1,6 @@
 import express from "express"
 import { sendInterface } from "./interfaces&types/int"
+import mailer from "./lib/mailer"
 
 const app=express()
 
@@ -14,9 +15,9 @@ app.get('/',async(req,res):Promise<void>=>{
 
 app.post('/send',async(req,res):Promise<void>=>{
     try {
-        const {mailfrom,mailto,subject,message}:sendInterface=req.body
-        
-        res.status(200).send({msg:"Hello there"})
+        let {mailfrom,email,subject,text}:sendInterface=req.body
+        subject=`${mailfrom}: ${subject}`
+        res.status(200).send(mailer(email,subject,text))
     } catch (error:any) {
         res.status(500).send({error:error.message})
     }
