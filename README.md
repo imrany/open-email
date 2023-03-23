@@ -81,3 +81,5 @@ Response should be
 ```json
 {"msg":"Mail sent"}
 ```
+
+You can test the api by placing your email address on both the `mailfrom` and the `mailto` fields and the response, after sending the request check your email inbox.
