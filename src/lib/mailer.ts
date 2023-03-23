@@ -5,7 +5,7 @@ dotenv.config()
 
 async function mailer(req:any,res:any):Promise<void>{
    try {
-    let {mailfrom,email,subject,text}:sendInterface=req.body
+    let {mailfrom,mailto,subject,message}:sendInterface=req.body
     subject=`${mailfrom}: ${subject}`
     let mailTransporter=nodemailer.createTransport({
         service:"gmail",
@@ -16,13 +16,13 @@ async function mailer(req:any,res:any):Promise<void>{
     })
     let details:mailDetailsInterface={
         from:process.env.TRANSPORTER,
-        to:email,
+        to:mailto,
         subject,
-        text
+        text:message
     }
     mailTransporter.sendMail(details,(err: any)=>{
         if(err){
-            res.status(201).send({error:"Mail wasn't sent, try again!"})
+            res.status(404).send({error:"Mail wasn't sent, try again!"})
         }else{
             res.status(200).send({msg:"Mail sent"})
         }
