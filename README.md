@@ -75,7 +75,9 @@ print(f"Status Code: {r.status_code}, Response: {r.json()}")
 
 ## Used as in Curl
 ```bash
-curl -X POST https://open-email-delivery.onrender.com/send 
-   -H "Content-Type: application/json"
-   -d '{"mailfrom": "sender@gmail.com","mailto": "receiver@gmail.com", "subject": "Any Subject","message": "Hello there"}'  
+curl -X POST https://open-email-delivery.onrender.com/send -H "Content-Type: application/json" -d '{"mailfrom": "sender@gmail.com","mailto": "receiver@gmail.com", "subject": "Any Subject","message": "Hello there"}'  
+```
+Response should be
+```json
+{"msg":"Mail sent"}
 ```
