@@ -1,9 +1,12 @@
 import nodemailer from "nodemailer"
-import { mailDetailsInterface } from "../interfaces&types/int"
+import { mailDetailsInterface, sendInterface } from "../interfaces&types/int"
 import * as dotenv from "dotenv"
 dotenv.config()
 
-function mailer(email:string, subject:string, text:string){
+async function mailer(req:any,res:any):Promise<void>{
+   try {
+    let {mailfrom,email,subject,text}:sendInterface=req.body
+    subject=`${mailfrom}: ${subject}`
     let mailTransporter=nodemailer.createTransport({
         service:"gmail",
         auth:{
@@ -19,11 +22,14 @@ function mailer(email:string, subject:string, text:string){
     }
     mailTransporter.sendMail(details,(err: any)=>{
         if(err){
-            return({error:"Mail wasn't sent, try again!"})
+            res.status(201).send({error:"Mail wasn't sent, try again!"})
         }else{
-            return({msg:"Mail sent"})
+            res.status(200).send({msg:"Mail sent"})
         }
     })
+   } catch (error:any) {
+    res.status(500).send({error:error.message})
+   }
 }
 
 export default mailer
