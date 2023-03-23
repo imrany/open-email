@@ -1,10 +1,15 @@
 import express from "express"
-import { sendInterface } from "./interfaces&types/int"
 import mailer from "./lib/mailer"
+import cors from "cors"
 
 const app=express()
 
-//route
+//middlewares
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+app.use(cors({}))
+
+//routes
 app.get('/',async(req,res):Promise<void>=>{
     try {
         res.status(200).send({msg:"Hello there"})
@@ -13,15 +18,7 @@ app.get('/',async(req,res):Promise<void>=>{
     }
 })
 
-app.post('/send',async(req,res):Promise<void>=>{
-    try {
-        let {mailfrom,email,subject,text}:sendInterface=req.body
-        subject=`${mailfrom}: ${subject}`
-        res.status(200).send(mailer(email,subject,text))
-    } catch (error:any) {
-        res.status(500).send({error:error.message})
-    }
-})
+app.post('/send', mailer)
 
 //listening to port
 let port:number|string=process.env.PORT||8000
