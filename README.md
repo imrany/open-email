@@ -60,6 +60,12 @@ This javascript function will send a `POST` to the open-email then will return a
     "msg":"Mail sent"
 }
 ```
+Otherwise you would receive an error 
+```json
+{
+    "error":"Mail wasn't sent, try again!"
+}
+```
 
 ## Used as in Python (Python Requests library)
 ```python
@@ -77,9 +83,14 @@ print(f"Status Code: {r.status_code}, Response: {r.json()}")
 ```bash
 curl -X POST https://open-email-delivery.onrender.com/send -H "Content-Type: application/json" -d '{"mailfrom": "sender@gmail.com","mailto": "receiver@gmail.com", "subject": "Any Subject","message": "Hello there"}'  
 ```
+
 Response should be
 ```json
 {"msg":"Mail sent"}
+```
+Otherwise you would receive an error
+```json
+{"error":"Mail wasn't sent, try again!"}
 ```
 
 You can test the api by placing your email address on both the `mailfrom` and the `mailto` fields and the response, after sending the request check your email inbox.
