@@ -1,9 +1,9 @@
 
 export interface sendInterface{
     mailfrom:string
-    email:string
+    mailto:string
     subject:string
-    text:string
+    message:string
 }
 
 
