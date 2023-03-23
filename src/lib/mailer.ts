@@ -22,9 +22,9 @@ async function mailer(req:any,res:any):Promise<void>{
     }
     mailTransporter.sendMail(details,(err: any)=>{
         if(err){
-            res.status(404).send({error:"Mail wasn't sent, try again!"})
+            res.status(404).json({error:"Mail wasn't sent, try again!"})
         }else{
-            res.status(200).send({msg:"Mail sent"})
+            res.status(200).json({msg:"Mail sent"})
         }
     })
    } catch (error:any) {
