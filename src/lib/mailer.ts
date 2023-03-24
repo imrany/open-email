@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer"
-import { mailDetailsInterface, sendInterface } from "../interfaces&types/int"
+import { mailDetailsInterface, sendInterface } from "../types/int"
 import * as dotenv from "dotenv"
 dotenv.config()
 
