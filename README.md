@@ -94,3 +94,6 @@ Otherwise you would receive an error
 ```
 
 You can test the api by placing your email address on both the `mailfrom` and the `mailto` fields and the response, after sending the request check your email inbox.
+
+## License
+[MIT License](./LICENSE) 
